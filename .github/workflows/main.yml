@@ -7,7 +7,7 @@ permissions:
 # pipeline tetikleyecek olayları tanımlıyoruz
 on:
   push:
-    branches: [ main ] # main branche push yapıldıgında calisir
+    branches: [ master ] # main branche push yapıldıgında calisir
 
 # tüm pipeline boyunca kullanılacak environment variablelar
 env:
