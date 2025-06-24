@@ -7,7 +7,7 @@ permissions:
 # pipeline tetikleyecek olayları tanımlıyoruz
 on:
   push:
-    branches: [ master ] # main branche push yapıldıgında calisir
+    branches: [ master ]
 
 # tüm pipeline boyunca kullanılacak environment variablelar
 env:
@@ -81,7 +81,7 @@ jobs:
     name: Build & Push Docker Images
     runs-on: ubuntu-latest
     needs: code-quality # önceki job başarılı olmalı
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' # sadece main branche pushta çalışması icin
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     
     steps:
     # repoyu çeker
@@ -126,7 +126,7 @@ jobs:
     name: Deploy to Staging
     runs-on: ubuntu-latest
     needs: build-and-push # önceki job başarılı olmalı
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' # sadece main branche pushta çalışması icin
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     steps:
       # ssh ile staging sunucusuna baglan ve deploy et
       - name: Deploy to Staging Server
