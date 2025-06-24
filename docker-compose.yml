@@ -13,7 +13,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data # Db verilerinin kalıcı olarak hostta saklanması için
     ports:
-      - "5433:5432" # db port yönlendirmesi
+      - "5432:5432" # db port yönlendirmesi
     networks:
       - patient-net
 
