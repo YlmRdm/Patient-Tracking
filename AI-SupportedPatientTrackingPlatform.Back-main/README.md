@@ -7,7 +7,7 @@ AI-Supported Patient Tracking Platform, gelişmiş Clean Architecture ve Domain-
 Proje, Clean Architecture prensiplerine uygun bir şekilde katmanlı olarak tasarlanmıştır:
 
 ```
-API ➝ Application ➝ Domain 
+API ➝ Application ➝ Domain
            ↑
 Infrastructure/Persistence
 ```
@@ -41,19 +41,22 @@ Infrastructure/Persistence
 ### Projeyi Çalıştırma
 
 1. Repo'yu klonlayın:
+
    ```
    git clone https://github.com/yourusername/PatientTrackingPlatform.git
    cd PatientTrackingPlatform
    ```
 
 2. Docker Compose ile çalıştırın:
+
    ```
    docker-compose up -d
    ```
-   
+
    Bu komut, PostgreSQL veritabanını ve API'yi başlatacaktır.
 
 3. API'ye şu adreslerden erişebilirsiniz:
+
    - http://localhost:5000 - HTTP
    - https://localhost:5001 - HTTPS (geliştirme sertifikası)
 
@@ -65,6 +68,7 @@ Infrastructure/Persistence
 Eğer Docker kullanmadan projeyi yerel geliştirme ortamında çalıştırmak isterseniz:
 
 1. Migrasyon oluşturun:
+
    ```
    cd src/PatientTrackingPlatform.API
    dotnet ef migrations add InitialMigration -o ../PatientTrackingPlatform.Persistence/Migrations
@@ -78,10 +82,12 @@ Eğer Docker kullanmadan projeyi yerel geliştirme ortamında çalıştırmak is
 ## Fonksiyonel Modüller
 
 1. **Authentication (JWT Tabanlı)**
+
    - Register / Login / Logout
    - Role-based authorization (Admin / Doctor)
 
 2. **Patient Management**
+
    - Hasta Listeleme, Ekleme, Güncelleme, Silme (CRUD)
    - Hasta geçmişi
    - Doktor notları
@@ -92,10 +98,12 @@ Eğer Docker kullanmadan projeyi yerel geliştirme ortamında çalıştırmak is
 ## API Endpoints
 
 ### Authentication
+
 - `POST /api/auth/register` - Yeni kullanıcı kaydı
 - `POST /api/auth/login` - Giriş yapma
 
 ### Patients
+
 - `GET /api/patients` - Tüm hastaları listele
 - `GET /api/patients/{id}` - Hasta detayını getir
 - `POST /api/patients` - Yeni hasta ekle
@@ -104,12 +112,14 @@ Eğer Docker kullanmadan projeyi yerel geliştirme ortamında çalıştırmak is
 - `GET /api/patients/search` - Hastalarda arama yap
 
 ### Patient Notes
+
 - `GET /api/patients/{patientId}/notes` - Hasta notlarını listele
 - `GET /api/patients/{patientId}/notes/{noteId}` - Hasta notu detayını getir
 - `POST /api/patients/{patientId}/notes` - Yeni hasta notu ekle
 - `PUT /api/patients/{patientId}/notes/{noteId}` - Hasta notunu güncelle
 
 ### Users
+
 - `GET /api/users` - Tüm kullanıcıları listele
 - `GET /api/users/{id}` - Kullanıcı detayını getir
 - `POST /api/users` - Yeni kullanıcı ekle (Admin yetkisi gerekli)
@@ -117,6 +127,7 @@ Eğer Docker kullanmadan projeyi yerel geliştirme ortamında çalıştırmak is
 - `DELETE /api/users/{id}` - Kullanıcıyı deaktive et (Admin yetkisi gerekli)
 
 ### Prediction
+
 - `GET /api/prediction/{patientId}` - Hasta için tahmin sonuçlarını getir
 
 ## Mimari Yaklaşım
