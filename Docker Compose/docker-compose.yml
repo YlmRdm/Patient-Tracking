@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  # PostgreSQL veritabanı servisi
+  db:
+    image: postgres:16 # postgresql 16 image
+    container_name: patient-db # container ismi
+    restart: unless-stopped # hata verirse otomatik olarak yeniden başlaması için.
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB} # DB adının environmenttan alınması
+      POSTGRES_USER: ${POSTGRES_USER} # Kullanıcı adının environmenttan alınması
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Db passwordunun environmenttan alınması
+    volumes:
+      - db-data:/var/lib/postgresql/data # Db verilerinin kalıcı olarak hostta saklanması için
+    ports:
+      - "5432:5432" # db port yönlendirmesi
+    networks:
+      - patient-net
+
+  # .net backend api servisi
+  backend:
+    build:
+      context: .
+      dockerfile: backend.Dockerfile # kullanılacak olan dockerfile burada belirtiyoruz.
+    restart: unless-stopped
+    environment:
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT} # uygulama çalışma ortamı environment'tan alınır
+      ConnectionStrings__DefaultConnection: Host=db;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD} # db bağlantı bilgileri tanımlaması
+    ports:
+      - "5001:8080" # API'a hosttan 5001 portu üzerinden erişilmesi için.
+    depends_on:
+      - db # Backend servisi oluşmak için önce veritabanını bekler
+    command: sh -c "sleep 20 && dotnet PatientTrackingPlatform.API.dll" # databasein hazır olması için 20 sn bekleyip sonra uygulamayı başlatacak
+    networks:
+      - patient-net
+
+  # Angular frontend servisi
+  frontend:
+    build:
+      context: . # Build işlemi için ana dizin.
+      dockerfile: frontend.Dockerfile # Kullanılacak olan dockerfile belirtiyoruz
+    container_name: patient-frontend # container ismi
+    restart: unless-stopped # Container hata verirse otomatik olarak yeniden başlatılır
+    ports:
+      - "80:80" # frontend uygulamasına 80 portu üzerinden erişim
+    depends_on:
+      - backend # Frontend servisi oluşmak için önce backendi bekler
+    networks:
+      - patient-net
+
+# db verilerinin kalıcı olarak saklanması için volume tanımı.
+volumes:
+  db-data:
+
+# Servislerin birbiriyle güvenli şekilde iletişim kurabilmesi için network.
+networks:
+  patient-net: 

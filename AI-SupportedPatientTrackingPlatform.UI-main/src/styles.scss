@@ -1,0 +1,88 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    height: 100%; 
+  }
+  
+  body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: #f5f5f5;
+  }
+  
+  /* Utility Classes */
+  .full-width {
+    width: 100%;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .mt-10 {
+    margin-top: 10px;
+  }
+  
+  .mt-20 {
+    margin-top: 20px;
+  }
+  
+  .mb-10 {
+    margin-bottom: 10px;
+  }
+  
+  .mb-20 {
+    margin-bottom: 20px;
+  }
+  
+  /* Snackbar styles */
+  .error-snackbar {
+    --mdc-snackbar-container-color: #f44336 !important;
+    --mdc-snackbar-supporting-text-color: white !important;
+    --mat-mdc-snack-bar-button-color: white !important;
+  }
+  
+  /* Card styling */
+  mat-card {
+    border-radius: 8px !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+  }
+  
+  mat-card-header {
+    margin-bottom: 16px;
+  }
+  
+  /* Table styling */
+  .mat-mdc-table {
+    background: transparent !important;
+  }
+  
+  .mat-mdc-row:hover {
+    background-color: rgba(0,0,0,0.04);
+  }
+  
+  /* Form field styling */
+  .mat-mdc-form-field {
+    margin-bottom: 10px;
+  }
+  
+  /* Global animation */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.3s ease-in;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .responsive-container {
+      padding: 10px;
+    }
+    
+    mat-card {
+      padding: 12px !important;
+    }
+  }

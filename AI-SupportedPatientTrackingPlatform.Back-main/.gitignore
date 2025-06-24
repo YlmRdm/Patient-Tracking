@@ -1,0 +1,56 @@
+# .NET build files
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+.idea/
+*.DotSettings.user
+
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Logs
+*.log
+Logs/
+
+# ASP.NET temporary files
+**/App_Data/Temp/
+
+TestResults/
+
+# Database files
+*.mdf
+*.ldf
+
+# Publish 
+publish/
+*.publishsettings
+
+# Environment
+.env
+.env.*
+
+# Secrets (local secret storage)
+secrets.json
+
+# Backup
+*.bak
+*.swp
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini

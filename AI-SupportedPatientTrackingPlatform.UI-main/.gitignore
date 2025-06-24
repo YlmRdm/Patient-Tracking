@@ -1,0 +1,104 @@
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+
+# vscode
+# .NET build files
+bin/
+obj/
+out/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code settings
+.vscode/
+
+# Rider (JetBrains) veya VS için ekstra
+.idea/
+*.DotSettings.user
+
+# NuGet paketleri (genelde restore edilir)
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Logs
+*.log
+Logs/
+
+# ASP.NET temporary files
+**/App_Data/Temp/
+
+# Test sonuçları
+TestResults/
+
+# Database files
+*.mdf
+*.ldf
+
+# Publish çıktısı
+publish/
+*.publishsettings
+
+# Environment dosyaları (dikkatli kullan)
+.env
+.env.*
+
+# Secrets (local secret storage)
+secrets.json
+
+# Backup dosyaları
+*.bak
+*.swp
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
