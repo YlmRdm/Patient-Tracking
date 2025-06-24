@@ -100,7 +100,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: . 
-        file: ./Dockerfile/backend.Dockerfile # dockerfile yolu
+        file: ./backend.Dockerfile # dockerfile yolu
         push: true # imageı push et
         tags: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.BACKEND_IMAGE_NAME }}:latest
       
@@ -109,7 +109,7 @@ jobs:
       uses: docker/build-push-action@v5
       with:
         context: .
-        file: ./Dockerfile/frontend.Dockerfile # Dockerfile yolu
+        file: ./frontend.Dockerfile # Dockerfile yolu
         push: true # imageı push et
         tags: ${{ env.REGISTRY }}/${{ secrets.DOCKER_USERNAME }}/${{ env.FRONTEND_IMAGE_NAME }}:latest
         
