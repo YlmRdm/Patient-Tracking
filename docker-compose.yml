@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   # PostgreSQL veritabanı servisi
@@ -13,7 +13,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data # Db verilerinin kalıcı olarak hostta saklanması için
     ports:
-      - "5432:5432" # db port yönlendirmesi
+      - "5433:5432" # db port yönlendirmesi
     networks:
       - patient-net
 
@@ -54,4 +54,4 @@ volumes:
 
 # Servislerin birbiriyle güvenli şekilde iletişim kurabilmesi için network.
 networks:
-  patient-net: 
+  patient-net:
